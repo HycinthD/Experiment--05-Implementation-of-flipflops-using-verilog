@@ -109,32 +109,105 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Hycinth D
+RegisterNumber: 23006688 
 */
 
+##code
+
+SR FLIPFLOPS CODE:
+module flipflops(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=S|((~R)&Q);
+Qbar=R|((~S)&(Qbar));
+end
+endmodule
+
+JK FLIPFLOPS CODE:
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
 
 
+D FLIPFLOPS CODE:
+module flipflops(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
 
-
+T FLIPFLOPS CODE:
+module flipflops(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end
+endmodule
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+SR FLIPFLOPS FOR RTL LOGIC:
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/892b20f2-6534-47c9-80fd-ff25a96cfedd)
 
+JK FLIPFLOPS FOR RTL LOGIC:
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/42b398c9-f424-4612-bed8-306ddf70df52)
 
+D FLIPFLOPS FOR RTL LOGIC:
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/810009f4-bed1-4399-a7a0-3a7ddda767ee)
 
+T FLIPFLOPS FOR RTL LOGIC:
+
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/d42cfa5a-030c-40d9-a9f8-7c37df787e9c)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+SR FLIPFLOPS FOR TIMING DIGRAMS:
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/900b1e2c-b4f2-4667-84b2-db93a797c993)
 
+JK FLIPFLOPS FOR TIMING DIGRAMS:
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/9c7c0c40-2a53-446c-8f97-08c8018cdc93)
 
+D FLIPFLOPS FOR TIMING DIGRAMS
 
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/1f6f9c7e-1c34-44f8-bea5-23161821e9ab)
 
+T FLIPFLOPS FOR TIMING DIGRAMS:
+
+![image](https://github.com/HycinthD/Experiment--05-Implementation-of-flipflops-using-verilog/assets/144870810/624da680-fe77-4a06-9b10-be287f42e715)
 
 ### RESULTS 
+Implementation-of-flipflops-using-verilog successfully completed.
